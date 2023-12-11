@@ -29,7 +29,7 @@ environment = SubResource("Environment_myia6")
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -81.8568, 0, -0.018744)
 
 [node name="SpeedRing2" parent="." instance=ExtResource("2_j07bt")]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -81.8568, 0, -30.0187)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -135.666, 14.5637, 12.2144)
 
 [node name="SpeedRing3" parent="." instance=ExtResource("2_j07bt")]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -81.8568, 0, 29.9813)
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -195.627, -1.52588e-05, -2.01836)
