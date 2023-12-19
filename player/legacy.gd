@@ -1,10 +1,12 @@
 extends CharacterBody3D
 
-const ROLL_SPEED = 1.5 # left/right
-const PITCH_SPEED = 1.0 # up/down
-var roll_velocity = 0.0
-var pitch_velocity = 0.0
-var speed = 5.0
+const BASE_SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+const ROLL_SPEED = 1.5
+const PITCH_SPEED = 1.0
+var speed = BASE_SPEED
+var rotation_z = 0.0
+var rotation_y = 0.0
 
 func _physics_process(delta):
 	var tilt_left_strength = Input.get_action_strength("tilt_left")
@@ -14,19 +16,19 @@ func _physics_process(delta):
 	var accelerate_strength = Input.get_action_strength("accelerate")
 	var decelerate_strength = Input.get_action_strength("decelerate") * 2
 
-	var roll_target = ROLL_SPEED * (tilt_right_strength - tilt_left_strength)
-	var pitch_target = PITCH_SPEED * (tilt_up_strength - tilt_down_strength)
+	var target_rotation_z = ROLL_SPEED * (tilt_left_strength - tilt_right_strength)
+	var target_rotation_y = PITCH_SPEED * (tilt_down_strength - tilt_up_strength)
 
-	roll_velocity = lerp(roll_velocity, roll_target, 0.05)
-	pitch_velocity = lerp(pitch_velocity, pitch_target, 0.05)
+	rotation_z = lerp(rotation_z, target_rotation_z, 0.05)
+	rotation_y = lerp(rotation_y, target_rotation_y, 0.05)
 
 	speed += (accelerate_strength - decelerate_strength) * delta
 	speed = max(speed, 0)
 
-	rotate_object_local(Vector3.FORWARD, roll_velocity * delta)
-	rotate_object_local(Vector3.LEFT, pitch_velocity * delta)
+	rotate_object_local(Vector3(0, 0, 1), rotation_z * delta)
+	rotate_object_local(Vector3(0, 1, 0), rotation_y * delta)
 
-	velocity = -transform.basis.z * speed
+	velocity = transform.basis.z * speed * -1
 
 	var current_fov = float($Camera3D.fov)
 	if accelerate_strength > decelerate_strength:
@@ -37,7 +39,3 @@ func _physics_process(delta):
 		$Camera3D.fov = lerp(current_fov, 75.0, 0.005)
 
 	move_and_slide()
-
-	var rounded = round(speed * 10) / 10.0
-	$CanvasLayer/RichTextLabel1.set_text("[center]"+str(rounded))
-	$CanvasLayer/TextureRect.rotation_degrees = rad_to_deg(rotation.z)

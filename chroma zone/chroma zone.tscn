@@ -12,6 +12,7 @@ sky_material = SubResource("PanoramaSkyMaterial_4fbgl")
 [sub_resource type="Environment" id="Environment_myia6"]
 background_mode = 2
 sky = SubResource("Sky_khc84")
+sky_rotation = Vector3(3.08225, -6.28319, -0.10472)
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 1.04
@@ -26,19 +27,19 @@ volumetric_fog_density = 0.0024
 environment = SubResource("Environment_myia6")
 
 [node name="SpeedRing" parent="." instance=ExtResource("2_j07bt")]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -81.8568, 0, -0.018744)
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 1.81419, 0, -62.1901)
 
 [node name="SpeedRing2" parent="." instance=ExtResource("2_j07bt")]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -135.666, 14.5637, 12.2144)
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, -10.4189, 14.5637, -115.999)
 
 [node name="SpeedRing3" parent="." instance=ExtResource("2_j07bt")]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -195.627, -1.52588e-05, -2.01836)
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 3.81382, -1.52588e-05, -175.96)
 
 [node name="SpeedRing4" parent="." instance=ExtResource("2_j07bt")]
-transform = Transform3D(-4.37114e-08, 1, 0, 0.999994, 4.37111e-08, -0.00340327, -0.00340327, -1.48762e-10, -0.999994, -288.649, 25.3791, -12.8903)
+transform = Transform3D(0.00340327, -4.35626e-08, 0.999994, 0.999994, 4.37111e-08, -0.00340327, -4.35626e-08, 1, 4.37111e-08, 14.6858, 25.3791, -268.982)
 
 [node name="SpeedRing5" parent="." instance=ExtResource("2_j07bt")]
-transform = Transform3D(-4.37114e-08, 1, 0, 0.999994, 4.37111e-08, -0.00340327, -0.00340327, -1.48762e-10, -0.999994, -342.459, 10.7738, -25.0738)
+transform = Transform3D(0.00340327, -4.35626e-08, 0.999994, 0.999994, 4.37111e-08, -0.00340327, -4.35626e-08, 1, 4.37111e-08, 26.8693, 10.7738, -322.792)
 
 [node name="SpeedRing6" parent="." instance=ExtResource("2_j07bt")]
-transform = Transform3D(-4.37114e-08, 1, 0, 0.999994, 4.37111e-08, -0.00340327, -0.00340327, -1.48762e-10, -0.999994, -402.42, 25.3859, -10.8907)
+transform = Transform3D(0.00340327, -4.35626e-08, 0.999994, 0.999994, 4.37111e-08, -0.00340327, -4.35626e-08, 1, 4.37111e-08, 12.6862, 25.3859, -382.753)

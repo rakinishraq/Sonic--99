@@ -1,25 +1,111 @@
-[gd_scene load_steps=4 format=3 uid="uid://b080dbgiwx713"]
+[gd_scene load_steps=8 format=3 uid="uid://b080dbgiwx713"]
 
 [ext_resource type="PackedScene" uid="uid://dgldbg1aji5jw" path="res://player/cockpit/cockpit.tscn" id="1_118qv"]
 [ext_resource type="Script" path="res://player/player.gd" id="1_ajmch"]
+[ext_resource type="Shader" path="res://crt.gdshader" id="3_6jhvt"]
+[ext_resource type="FontFile" uid="uid://blym4m2vkodll" path="res://player/DIGITALDREAM.ttf" id="4_j4gfg"]
+[ext_resource type="Texture2D" uid="uid://c7wa10fvhitoy" path="res://player/overlay.png" id="5_clohe"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gqwoc"]
 radius = 2.70471
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_shuxx"]
+shader = ExtResource("3_6jhvt")
+shader_parameter/crt_brightness = 1.0
+shader_parameter/crt_ghost = 1.583
+shader_parameter/crt_grid = 0.342
+shader_parameter/crt_white_noise = 0.05
+shader_parameter/crt_curve = 0.0
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ajmch")
 
 [node name="Cockpit" parent="." instance=ExtResource("1_118qv")]
-transform = Transform3D(0.964651, 0.263157, -0.014032, -0.263183, 0.964746, 0, 0.0135373, 0.00369298, 0.999902, -1.69428, -0.780383, -0.0176015)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.0140319, 0.0685131, 0.997552, 2.99511e-09, 0.99765, -0.0685198, -0.999902, 0.000961469, 0.013999, 0.00893259, 0.0406647, 0.0108971)
+transform = Transform3D(-0.0135373, -0.00369299, -0.999902, 0.147443, 0.989054, -0.00564912, 0.988978, -0.147505, -0.0128447, -0.00106847, -1.09843, -1.4795)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.964651, 0.263157, -0.014032, -0.263183, 0.964746, 0, 0.0135373, 0.00369298, 0.999902, -0.0326123, -1.23373, 0.00571732)
 shape = SubResource("SphereShape3D_gqwoc")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(0.964651, 0.263157, -0.014032, -0.263183, 0.964746, -1.34773e-09, 0.0135373, 0.00369298, 0.999902, -1.69428, -0.780383, -0.0176015)
+transform = Transform3D(0.964651, 0.263157, -0.014032, -0.263183, 0.964746, -1.75672e-09, 0.0135373, 0.00369298, 0.999902, -0.0347965, -0.780383, -0.372749)
 light_energy = 8.138
 omni_range = 2.997
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_shuxx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
+offset_left = 59.0
+offset_top = 62.0
+offset_right = 1329.0
+offset_bottom = 774.0
+theme_override_colors/default_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_constants/line_separation = 11
+theme_override_fonts/normal_font = ExtResource("4_j4gfg")
+theme_override_font_sizes/normal_font_size = 21
+text = "Escape: Exit     Enter: Restart
+Shift/Right Trigger: Accelerate
+Ctrl/Left Trigger =  Decelerate
+WASD/Left Joystick =       Tilt"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = -125.0
+offset_right = 160.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.77, 0.77)
+pivot_offset = Vector2(159, 125)
+texture = ExtResource("5_clohe")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = -125.0
+offset_right = 160.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.365, 0.365)
+pivot_offset = Vector2(159, 125)
+texture = ExtResource("5_clohe")
+
+[node name="RichTextLabel1" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = 194.0
+offset_right = 109.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/default_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_fonts/normal_font = ExtResource("4_j4gfg")
+theme_override_font_sizes/normal_font_size = 41
+bbcode_enabled = true
+text = "[center]99.9"
