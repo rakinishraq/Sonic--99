@@ -8,12 +8,21 @@
 
 config_version=5
 
+[addons]
+
+instance_dock/scenes=[]
+instance_dock/preview_resolution=Vector2i(64, 64)
+
 [application]
 
 config/name="Sonic '99"
 run/main_scene="res://game.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://icon.png"
+
+[autoload]
+
+XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
 
 [display]
 
@@ -23,7 +32,7 @@ window/size/mode=2
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/InstanceDock/plugin.cfg", "res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/godot-xr-tools/plugin.cfg")
 
 [input]
 
@@ -63,3 +72,8 @@ decelerate={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":4,"axis_value":1.0,"script":null)
 ]
 }
+
+[xr]
+
+openxr/enabled=true
+shaders/enabled=true
